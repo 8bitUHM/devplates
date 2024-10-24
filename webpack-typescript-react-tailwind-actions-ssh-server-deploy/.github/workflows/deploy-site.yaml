@@ -24,12 +24,12 @@ jobs:
     - name: Build project
       run: npm run build 
 
-    - name: Deploy to SFTP
+    - name: Deploy to Server
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.SFTP_HOST }}
-        username: ${{ secrets.SFTP_USERNAME }}
-        password: ${{ secrets.SFTP_PASSWORD }}
-        port : ${{ secrets.SFTP_PORT }}
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port : ${{ secrets.SSH_PORT }}
         source: ./public
         target: ./path/to/folder/on/server
